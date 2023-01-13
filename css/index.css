@@ -81,26 +81,22 @@ body {
 }
 
 #top_images > * {
-  background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-#top_images > div:first-child{
-  background-image: url();
-  background-size: cover;
+#top_images > div{
+  background-image: url(../media/geo_images/australia_normal_2.jpg);
 }
 
 
 #top_images > div:nth-child(2) {
-  background-image: url();
-  background-size: cover;
+  background-image: url(../media/geo_images/stockholm_normal_4.jpg);
+
 }
 
 #top_images > div:last-child {
-  background-image: url();
-  background-size: cover;
-
+  background-image: url(../media/geo_images/toulouse_normal_4.jpg);
 }
 
 #top_text {

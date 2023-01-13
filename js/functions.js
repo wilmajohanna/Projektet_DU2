@@ -1,8 +1,7 @@
 
-// G
-// CODE According to specification
+// G, CODE According to specification
 function click_filter_element (event) {
-
+}
   /*
     ARGUMENTS
       event: event-object created when user clicks on one of the filter elements.
@@ -12,18 +11,13 @@ function click_filter_element (event) {
       Since a filter element will have changed after the click, the list of
       programmes must be updated.
 
-      Attention VG
-        Careful with the propagation of the click-event
-
     NO RETURN VALUE
 
   */
   
-}
 
 
-// G
-// CODE according to specification
+// G, CODE according to specification
 function create_filter_element (data) {
 
   /*
@@ -48,53 +42,44 @@ function create_filter_element (data) {
 
 }
 
+              // -------------------------------- The functions below ONLY USEFUL FOR VG ----------------------------------
+              // VG, CODE according to specification
+              function add_group_toggling (filter_container_dom) {
 
-// VG
-// CODE according to specification
-function add_group_toggling (filter_container_dom) {
+              /*
+              ARGUMENT
+              filter_container_dom: reference to a HTML-element that contains a set of fliter_elements
+              Exempel: the <ul> that contains the filters for Language.
 
-  /*
-    ARGUMENT
-      filter_container_dom: reference to a HTML-element that contains a set of fliter_elements
-            Exempel: the <ul> that contains the filters for Language.
-
-    SIDE EFFECTS
-      The function makes sure that when the user clicks on filter_container_dom, all the
-      filter_elements that it contains are selected / unselected.
-      Since some filter elements will have changed after the click, the list of
-      programmes must be updated.
-
-    NO RETURN VALUE
-
-  */
+              SIDE EFFECTS
+              The function makes sure that when the user clicks on filter_container_dom, all the
+              filter_elements that it contains are selected / unselected.
+              Since some filter elements will have changed after the click, the list of
+              programmes must be updated.
+              NO RETURN VALUE
+              */
   
-}
+            }
+
+             // VG, CODE according to specifications
+             function toggle_cities (event) {
+              /*
+              ARGUMENTS
+              This function does not take any arguments
+
+              SIDE EFFECTS
+              This function checks the state of the first city-filter-element (Madrid).
+              If it is selected then it de-selects ALL city-filter-elements
+              If it is de-selected then it selects ALL city-filter-elements 
+              NO RETURN VALUE
+              */
+              }
+              // -----------------------------------------------------------------------------------------------------------
 
 
-// VG
-// CODE according to specifications
-function toggle_cities (event) {
 
-  /*
+// WRITE SPECIFICATION of allt 3 functions: create_countries_cities_filters, create_country and create_city
 
-    ARGUMENTS
-      This function does not take any arguments
-
-    SIDE EFFECTS
-      This function checks the state of the first city-filter-element (Madrid).
-      If it is selected then it de-selects ALL city-filter-elements
-      If it is de-selected then it selects ALL city-filter-elements 
-
-    NO RETURN VALUE
-
-  */
-
-}
-
-
-// WRITE SPECIFICATION
-// ATTENTION: You need to write the specification of all three functions:
-//            create_countries_cities_filters, create_country and create_city
 function create_countries_cities_filters () {
   function create_country (country) {
     const dom = document.createElement("div");
@@ -115,25 +100,11 @@ function create_countries_cities_filters () {
 
     array_each(cities, create_city);
   }
-  function create_city (city) {
-
-    const dom = create_filter_element({
-      parent: document.querySelector(`#country_${city.countryID} > ul`),
-      class: "selected",
-      textContent: city.name,
-    });
-    dom.dataset.id = city.id;
-
-  }
-
-  array_each(COUNTRIES, create_country);
-}
+ 
 
 
-// G
-// ABSTRACT AND WRITE SPECIFICATION
-//    As you can see, all three functions below do basically the same thing.
-//    Abstract them to one function, and write the specification of that function.
+// G, ABSTRACT them to one function AND WRITE SPECIFICATION specification of that function.
+
 function create_levels_filter () {
   function create_level (level) {
     const dom = create_filter_element({
@@ -171,8 +142,7 @@ function create_language_filter () {
 }
 
 
-// G / VG (see details in specification)
-// CODE according to specifications
+// G, CODE according to specifications
 function create_programme (programme) {
   
   /*
@@ -184,12 +154,7 @@ function create_programme (programme) {
       This function creates the HTML-element that contains all the information
       about one programme, as seen in the video / image.
       
-      VG: The background image is a random image from among the images of the city
-          in which the programme is (via the university)
       G:  No background image required.
-
-
-      VG: The "see more" interaction must be included.
       G:  The "see more" element is not required. And that information needs not be in place.
 
     NO RETURN VALUE
@@ -199,8 +164,7 @@ function create_programme (programme) {
 }
 
 
-// G
-// CODE according to the specification
+// G, CODE according to the specification
 function update_programmes () {
 
   /*
@@ -211,8 +175,6 @@ function update_programmes () {
         the current filter status (which filter elements are selected / unselected).
         It uses the function read_filters to know which programmes need to be included.
 
-        VG: The top images (header) need to be updated here
-
       NO RETURN VALUE
 
   */
@@ -220,13 +182,9 @@ function update_programmes () {
 }
 
 
-// G
-// WRITE SPECIFICATION
-// You must understand how this function works. There will be questions about it
-// in the code review (kodredovisning)
+// G, WRITE SPECIFICATION
+// You must understand how this function works. There will be questions about it in the code review (kodredovisning)
 
-// Optional VG: Which parts of the function's code could be abstracted?
-//              Implement it
 function read_filters () {
   
   const city_selected_dom = document.querySelectorAll("#country_filter li.selected");
@@ -321,4 +279,5 @@ function read_filters () {
   }
 
   return programmes;
+}
 }
