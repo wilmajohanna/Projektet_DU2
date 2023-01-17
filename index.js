@@ -15,6 +15,7 @@
 
 
 // Create Filter Elements
+/*
 create_levels_filter();
 create_subjects_filter();
 create_language_filter();
@@ -25,14 +26,4 @@ document.querySelector("#search_field button").addEventListener("click", update_
 
 // Initialise programmes list by calling relevant function
 update_programmes();
-
-
-// VG
-// Add Interaction of filter containers (select-deselect all filters in the container)
-// Example: Click anywhere on the language-filter-container and all the language filters
-// (spanska, svenska, engelska, franska) will toggle.
-
-
-// VG
-// Add Interaction of button toggle-all-cities
 

@@ -21,7 +21,6 @@ function click_filter_element (event) {
   */
   
 
-
 // G, CODE according to specification
 function create_filter_element (data) {
 
@@ -54,7 +53,6 @@ function create_filter_element (data) {
       Returns a reference to the new dom-element
   */
 
-}
 
               // -------------------------------- The functions below ONLY USEFUL FOR VG ----------------------------------
               // VG, CODE according to specification
@@ -129,31 +127,32 @@ function create_levels_filter () {
     dom.dataset.id = level.id;
   }
   array_each(LEVELS, create_level);
-}
-// Create Subjects Filter
-function create_subjects_filter () {
-  function create_subject (subject) {
+*/
+
+function filter_elements(data) {
+  function create_element (item) {
     const dom = create_filter_element({
-      parent: document.querySelector("#subject_filter > ul"),
+      parent: document.querySelector(`#${data.name}_filter > ul`),
       class: "selected",
-      textContent: subject.name,
+      textContent: item.name,
     });
-    dom.dataset.id = subject.id;
+    dom.dataset.id = item.id;
   }
-  array_each(SUBJECTS, create_subject);
+  array_each(data.item, create_element);
 }
-// Create Search Field
-function create_language_filter () {
-  function create_element (data) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#language_filter > ul"),
-      class: "selected",
-      textContent: data.name,
-    });
-    dom.dataset.id = data.id;
-  }
-  array_each(LANGUAGES, create_element);
-}
+
+filter_elements({
+  name: 'level',
+  item: LEVELS
+});
+filter_elements({
+  name: 'subject',
+  item: SUBJECTS
+});
+filter_elements({
+  name: 'language',
+  item: LANGUAGES
+});
 
 
 // G, CODE according to specifications
