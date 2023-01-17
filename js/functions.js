@@ -113,11 +113,24 @@ function create_countries_cities_filters () {
     array_each(cities, create_city);
   }
  
+  function create_city (city) {
+
+    const dom = create_filter_element({
+      parent: document.querySelector(`#country_${city.countryID} > ul`),
+      class: "selected",
+      textContent: city.name,
+    });
+    dom.dataset.id = city.id;
+
+  }
+
+  array_each(COUNTRIES, create_country);
+}
 
 
 // G, ABSTRACT them to one function AND WRITE SPECIFICATION specification of that function.
 
-function create_levels_filter () {
+/* function create_levels_filter () {
   function create_level (level) {
     const dom = create_filter_element({
       parent: document.querySelector("#level_filter > ul"),
@@ -158,6 +171,24 @@ filter_elements({
 // G, CODE according to specifications
 function create_programme (programme) {
   
+function create_programme(programme) {
+ 
+  const grid = document.querySelector('#programmes ul'); 
+ 
+    const parent_box = document.createElement('div');
+    parent_box.classList.add("programme");
+    grid.appendChild(parent_box);
+
+      const first_child = document.createElement('li');
+      parent_box.appendChild(first_child);
+
+      const second_child = document.createElement('li');
+      parent_box.appendChild(second_child);
+
+      const third_child = document.createElement('li');
+      parent_box.appendChild(third_child);
+  }
+
   /*
 
     ARGUMENT
