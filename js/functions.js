@@ -112,7 +112,6 @@ function create_countries_cities_filters () {
 
     array_each(cities, create_city);
   }
- 
   function create_city (city) {
 
     const dom = create_filter_element({
@@ -169,8 +168,6 @@ filter_elements({
 
 
 // G, CODE according to specifications
-function create_programme (programme) {
-  
 function create_programme(programme) {
  
   const grid = document.querySelector('#programmes ul'); 
@@ -181,13 +178,31 @@ function create_programme(programme) {
 
       const first_child = document.createElement('li');
       parent_box.appendChild(first_child);
+      first_child.innerHTML = `<h1>${uni}</h1>`
 
       const second_child = document.createElement('li');
       parent_box.appendChild(second_child);
 
-      const third_child = document.createElement('li');
-      parent_box.appendChild(third_child);
+  
+  const information  = {
+    prog: programme.name,
+    uni: UNIVERSITIES[programme.universityID].name,
+    city: CITIES[UNIVERSITIES[programme.universityID].cityID].name,
+    country: COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name,
+
+    subject: SUBJECT [programme.subjectID].name,
+    level: LEVELS [programme.levelID].name,
+    language: LANGUAGES [programme.languageID].name,
+
+    sun: CITIES[UNIVERSITIES[programme.universityID].cityID].sun,
+
+
   }
+
+
+  }
+
+
 
   /*
 
@@ -205,7 +220,6 @@ function create_programme(programme) {
 
   */  
 
-}
 
 
 // G, CODE according to the specification
@@ -323,5 +337,4 @@ function read_filters () {
   }
 
   return programmes;
-}
 }
